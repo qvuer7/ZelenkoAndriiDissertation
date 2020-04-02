@@ -1,16 +1,23 @@
 import math
 from rrt.node import node
 
+
+
 class drone:
     def __init__(self, start, finish,
-                 accelerationX, accelerationY, accelerationZ,
+                 initialVelocityX, initialVelocityY, initialVelocityZ,
+                 maxAccelerationX, maxAccelerationY, maxAccelerationZ,
                  size, mass, obstacles,
                  annimation, ID):
         self.start = start
         self.finish = finish
-        self.accelerationX = accelerationX
-        self.accelerationY = accelerationY
-        self.accelerationZ = accelerationZ
+        self.velocityX = initialVelocityX
+        self.velocityY = initialVelocityY
+        self.velocityZ = initialVelocityZ
+        self.velocity = node(self.velocityX, self.velocityY, self.velocityZ)
+        self.accelerationX = 0
+        self.accelerationY = 0
+        self.accelerationZ = 0
         self.size = size
         self.mass = mass
         self.obstacles = obstacles
@@ -23,6 +30,19 @@ class drone:
         self.intercaptors = []
         self.intercaptionPoint = []
         self.ID = ID
+        self.velocity = node(self.velocityX, self.velocityY, self.velocityZ)
+        self.velocities = []
+        self.maxAccelerationY = maxAccelerationY
+        self.maxAccelerationX = maxAccelerationX
+        self.maxAccelerationZ = maxAccelerationZ
+        self.minRandx = min(start.x, finish.x)
+        self.maxRandx = max(start.x, finish.x)
+        self.minRandy =  min(start.y, finish.y)
+        self.maxRandy =  max(start.y, finish.y)
+        self.minRandz =  min(start.z, finish.z)
+        self.maxRandz =  max(start.z, finish.z)
+        self.goalSampleRate = 100
+
 
     def draw_line(self, start, end):
         line = [start]

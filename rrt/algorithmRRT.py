@@ -1,8 +1,9 @@
-from rrt.input import colors
+from  input.input import colors
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D, axes3d
 from rrt.functions import *
 fig = plt.figure()
+fig2 = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 
@@ -74,27 +75,50 @@ def rrt(drone, target):
 
 
 
-            randomNode = get_random_node(goalSampleRate = goalSampleRate, goalNode=target,
-                                         minRandx = minRandX, maxRandx = maxRandX ,
-                                         minRandy = minRandY, maxRandy= maxRandY ,
-                                        minRandz = minRandZ, maxRandz = maxRandZ )
-            check_nearest(node1 = randomNode, nodeList=drone.nodeList)
-            newnode = make_step(nodef = drone.position, nodet=randomNode, stepx = drone.accelerationX, stepy = drone.accelerationY, stepz = drone.accelerationZ)
+            randomNode = get_random_node(drone)
+            #check_nearest(node1 = randomNode, nodeList=drone.nodeList)
+
+            newnode = make_step(nodef = drone.position, nodet=randomNode, stepx = drone.velocity.x, stepy = drone.velocity.y, stepz = drone.velocity.z)
+
+            drone.velocity = get_velocity(drone)
+
+            drone2 = drone_collision(drone=drone, node1=newnode)[1]
+
+            drone.minRandx = min(drone.start.x, drone.finish.x)
+            drone.maxRandx = max(drone.start.x, drone.finish.x)
+            drone.minRandy = min(drone.start.y, drone.finish.y)
+            drone.maxRandy = max(drone.start.y, drone.finish.y)
+            drone.minRandz = min(drone.start.z, drone.finish.z)
+            drone.maxRandz = max(drone.start.z, drone.finish.z)
 
 
 
-            if node_obstacle_collision(node1 = newnode, obstacles=drone.obstacles) or drone_collision(drone = drone, node1 = newnode):
-                goalSampleRate = 0
+            if node_obstacle_collision(node1 = newnode, obstacles=drone.obstacles) :
+
+                drone.goalSampleRate = 0
                 possibleToConnect = False
 
+
+            elif (drone2 != False) :
+                drone.goalSampleRate = 0
+                possibleToConnect = False
+                collide = collision(drone1 = drone, drone2 = drone2, newnode = newnode)
+                collide.exchange()
             else:
-                goalSampleRate = 100
+                drone.goalSampleRate = 100
                 newnode.parent = drone.nodeList[len(drone.nodeList) - 1]
+
+                drone.velocities.append(drone.velocity)
                 drone.nodeList.append(newnode)
                 drone.position = newnode
                 possibleToConnect = True
+                set_acceleration(drone, percantageX=5, percantageY = 5, percantageZ = 5)
 
-            if node_distance(drone.position, target) <= drone.size:
+
+
+
+
+            if node_distance(drone.position, target) <= drone.size :
                 drone.RRTfinished = True
                 drone.nodeList.append(target)
                 drone.path = generate_final_course(gnode = target, nodelist = drone.nodeList)

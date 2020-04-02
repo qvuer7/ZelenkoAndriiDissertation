@@ -1,24 +1,25 @@
 from rrt.node import node
 import random
 import math
-from rrt.input import droneSize
+from input.input import droneSize
+import numpy as np
 
 
-def get_random_node(goalSampleRate, goalNode,
-                    minRandx, maxRandx, minRandy, maxRandy, minRandz, maxRandz):
+
+def get_random_node(drone):
     a = True
 
     goalProbability = random.randint(1,100)
 
-    if goalSampleRate <= goalProbability:
-        x = random.randint(minRandx, maxRandx)
-        y = random.randint(minRandy, maxRandy)
-        z = random.randint(minRandz, maxRandz)
+    if drone.goalSampleRate <= goalProbability:
+        x = random.randint(drone.minRandx, drone.maxRandx)
+        y = random.randint(drone.minRandy, drone.maxRandy)
+        z = random.randint(drone.minRandz, drone.maxRandz)
         randomNode = node(x, y, z)
 
         return randomNode
     else:
-        randomNode = goalNode
+        randomNode = drone.finish
         return randomNode
 
 
@@ -82,8 +83,8 @@ def generate_final_course(gnode, nodelist):
 def drone_collision(drone, node1):
     for j in range(len(drone.recipents)):
         if node_distance(node1 = drone.recipents[j].position, node2= node1)<= drone.size + drone.recipents[j].size:
-            return True
-    return False
+            return True, drone.recipents[j]
+    return False, False
 
 def get_random_nodes(point,radius, obstacles):
     nodes = []
@@ -109,6 +110,66 @@ def get_interception_point(line1, line2, size1, size2):
             if node_distance(node1 = line1[j], node2 = line2[k]) <= size1 + size2 : return line1[j]
 
     return node(-666,-500,-500)
+
+def get_velocity(drone):
+
+    vx = drone.velocity.x  + drone.accelerationX
+    vy = drone.velocity.y + drone.accelerationY
+    vz = drone.velocity.z + drone.accelerationZ
+
+    velocity = node(vx,vy,vz)
+    return velocity
+
+def distance_to_collision(drone):
+    distance = []
+    for i in range(len(drone.recipents)):
+        distance.append(node_distance(drone.position, drone.recipents[i].position))
+
+def set_acceleration(drone, percantageX, percantageY, percantageZ):
+    drone.accelerationX = drone.maxAccelerationX * (percantageX / 100)
+    drone.accelerationY = drone.maxAccelerationY * (percantageY / 100)
+    drone.accelerationZ = drone.maxAccelerationZ * (percantageZ / 100)
+
+"""
+up-left (-x  +y)
+up-right (+x +y)
+down-left (-x -y)
+down-right (+x -y)
+"""
+
+
+def choose_plane(drone):
+
+    dx = drone.position.x - drone.finish.x
+    dy = drone.position.y - drone.finish.y
+
+    plane = [int(np.sign(dx)), int(np.sign(dy))]
+
+    return plane
+
+
+
+
+
+class collision:
+    def __init__(self, drone1, drone2, newnode):
+        self.drone1 = drone1
+        self.drone2 = drone2
+        self.newnode = newnode
+
+
+
+    def exchange(self):
+        self.drone1.minRandx = int(min(self.drone1.position.x, self.drone1.finish.x))
+        self.drone1.maxRandx = int(max(self.drone1.position.x, self.drone1.finish.x))
+        self.drone1.minRandy = int(min(self.drone1.position.y, self.drone1.finish.y))
+        self.drone1.maxRandy = int(max(self.drone1.position.y, self.drone1.finish.y))
+
+
+
+
+
+
 
 
 

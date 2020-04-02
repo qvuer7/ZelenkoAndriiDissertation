@@ -1,13 +1,16 @@
-from rrt.functions import node
+from rrt.node import node
 from rrt.droneRRT import drone
 
 start = [[0,0,0], [100,0,100]]
 goal = [[100,100,100], [0,100,0]]
 obstacleCoordinates = []
-droneSize = 3
-droneAcceleration_X = 4
-droneAcceleration_Y = 4
-droneAcceleration_Z = 4
+droneSize = 10
+initialVelocityX = 0
+initialVelocityY = 0
+initialVelocityZ = 0
+maxAccelerationX = 10
+maxAccelerationY = 10
+maxAccelerationZ = 10
 step = 1
 droneMass = 1
 annimation = True
@@ -29,8 +32,10 @@ drones = []
 
 for i in range(len(start)):
     drones.append(drone(start = startNodes[i], finish = goalNodes[i],
-                        accelerationX=droneAcceleration_X, accelerationY=droneAcceleration_Y, accelerationZ=droneAcceleration_Z,
-                        size = droneSize, mass = droneMass, obstacles = obstacles, annimation = annimation, ID = i))
+                        initialVelocityX = initialVelocityX, initialVelocityY = initialVelocityY, initialVelocityZ = initialVelocityZ,
+                        size = droneSize, mass = droneMass, obstacles = obstacles, annimation = annimation, ID = i,
+                        maxAccelerationX = maxAccelerationX, maxAccelerationY = maxAccelerationY, maxAccelerationZ=maxAccelerationZ))
+
 
 for i in range(len(drones)):
     for j in range(len(drones)):
