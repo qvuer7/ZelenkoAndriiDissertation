@@ -7,8 +7,8 @@
 
 
 ## Installation
-### UNIX-based systems installation process(MacOS / Linux):
-####Using git
+### **UNIX-based systems installation process(MacOS / Linux):**
+###_Using git_
 
 `$ git clone https://github.com/qvuer7/ZelenkoAndriiDissertation.git`
 
@@ -22,7 +22,7 @@
 
 `$ python3 prm.py (for Probabilistic Roadmap algorithm)`
 
-####Downloading .zip archive
+###_Downloading .zip archive_
 
 `Unzip ZelenkoAndriiDissertation-master.zip`
 
@@ -36,8 +36,8 @@
 
 `$ python3 prm.py (for Probabilistic Roadmap algorithm)`
     
-###Windows systems installation process: 
-####Using git
+###**Windows systems installation process:** 
+###_Using git_
 
 `> git clone https://github.com/qvuer7/ZelenkoAndriiDissertation.git`
 
@@ -51,7 +51,7 @@
 
 `> python3 prm.py (for Probabilistic Roadmap algorithm)`
 
-####Downloading .zip archive
+###_Downloading .zip archive_
 
 `Unzip ZelenkoAndriiDissertation-master.zip`
 
