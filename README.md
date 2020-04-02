@@ -1,8 +1,10 @@
 # Zelenko Andrii Dissertation
 
 ## Requirements:
-###python 3.7 or higher
-###prefered pip of any other python package manager
+###
+python 3.7 or higher
+###
+prefered pip of any other python package manager
 
 ## Installation
 ###UNIX-based systems installation process(MacOS / Linux): 
