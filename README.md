@@ -7,7 +7,7 @@
 
 
 ## Installation
-## UNIX-based systems installation process(MacOS / Linux):
+### UNIX-based systems installation process(MacOS / Linux):
 ####Using git
 
 `$ git clone https://github.com/qvuer7/ZelenkoAndriiDissertation.git`
