@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46d4c22e-1262-4cd6-941c-038ffcac620c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/input.py" beforeDir="false" afterPath="$PROJECT_DIR$/input/input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrt.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrt/algorithmRRT.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrt/algorithmRRT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrt/droneRRT.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrt/droneRRT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrt/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/rrt/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rrt/input.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +40,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="510">
-                <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
               </first_editor>
               <second_editor />
             </state>
@@ -455,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585317039421</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cganged a bit">
+      <created>1585852934089</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1585852934090</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -463,14 +462,14 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24947146" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32891566" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5003524" side_tool="true" weight="0.18072289" />
-      <window_info anchor="bottom" id="Python Console" order="2" weight="0.32891566" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4982382" weight="0.32891566" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5017618" side_tool="true" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Python Console" order="2" sideWeight="0.49964765" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32891566" />
-      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32891566" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.15060242" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49964765" visible="true" weight="0.18072289" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
@@ -633,8 +632,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="510">
-            <caret line="34" column="42" lean-forward="true" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           </first_editor>
           <second_editor />
         </state>
