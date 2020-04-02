@@ -67,3 +67,6 @@
 `> python3 prm.py (for Probabilistic Roadmap algorithm)`
 
 
+##Own design scenarios
+modification of file `input/input.py` allow user to set own parameters. All parameters commented in `input/input.py` file.  
+

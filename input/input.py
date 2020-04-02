@@ -1,19 +1,19 @@
-from rrt.node import node
 from rrt.droneRRT import drone
+from rrt.node import node
 
-start = [[0,0,0], [100,0,100]]
-goal = [[100,100,100], [0,100,0]]
-obstacleCoordinates = []
-droneSize = 10
-initialVelocityX = 0
-initialVelocityY = 0
-initialVelocityZ = 0
-maxAccelerationX = 10
-maxAccelerationY = 10
-maxAccelerationZ = 10
-step = 1
-droneMass = 1
-annimation = True
+start = [[0, 0, 0], [100, 0, 100]]  # add [x,y,z] for each new drone start
+goal = [[100, 100, 100], [0, 100, 0]]  # add [x,y,z] for each new drone finish
+obstacleCoordinates = []  # add [x,y,z, radius] for each new obstacle coordinate and sizing
+droneSize = 10  # set all drones sizing
+initialVelocityX = 0  # set initial drone velocity in x
+initialVelocityY = 0  # set initial drone velocity in y
+initialVelocityZ = 0  # set initial drone velocity in z
+maxAccelerationX = 10  # set max drone acceleration in x
+maxAccelerationY = 10  # set max drone acceleration in y
+maxAccelerationZ = 10  # set max drone acceleration in z
+step = 1  # set drone maximum step distance used for PRM(in later version will be fixed)
+droneMass = 1  # set drone mass, used for intertia calculations, will be improved in later version
+annimation = True  # True to observer path building process, False to observe only path
 colors = ['r', 'g', 'y', 'k', 'b', 'm']
 
 
@@ -42,8 +42,8 @@ for i in range(len(drones)):
         if i == j : pass
         else: drones[i].recipents.append(drones[j])
 
-GNODE = [None for i in range(len(start))]
-SNODE = [None for i in range(len(start))]
+GNODE = [node(0, 0, 0) for i in range(len(start))]
+SNODE = [node(0, 0, 0) for i in range(len(start))]
 path = [None for i in range(len(start))]
 for i in range(len(GNODE)):
     GNODE[i] = node(goal[i][0], goal[i][1], goal[i][2])
