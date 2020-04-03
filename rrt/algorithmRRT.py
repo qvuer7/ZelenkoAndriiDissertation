@@ -1,9 +1,9 @@
-from  input.input import colors
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D, axes3d
+
+from input.input import colors
 from rrt.functions import *
+
 fig = plt.figure()
-fig2 = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
 
@@ -15,13 +15,7 @@ def rrt(drone, target):
     if node_distance(node1 = drone.position, node2 = target) <= drone.size:
         drone.RRTfinished = True
     else: drone.RRTfinished = False
-    minRandX = -100
-    maxRandX = 100
-    minRandY = -100
-    maxRandY = 100
-    minRandZ = -100
-    maxRandZ = 100
-    goalSampleRate = 100
+
     if drone.RRTfinished == True: pass
     else:
         while possibleToConnect == False :

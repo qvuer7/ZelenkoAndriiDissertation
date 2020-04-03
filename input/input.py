@@ -13,7 +13,7 @@ maxAccelerationY = 10  # set max drone acceleration in y
 maxAccelerationZ = 10  # set max drone acceleration in z
 step = 1  # set drone maximum step distance used for PRM(in later version will be fixed)
 droneMass = 1  # set drone mass, used for intertia calculations, will be improved in later version
-annimation = True  # True to observer path building process, False to observe only path
+annimation = True  # True to observe path building process, False to observe only path
 colors = ['r', 'g', 'y', 'k', 'b', 'm']
 
 
